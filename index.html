@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts by Category</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #ffffff;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .category {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: #ff6b6b;
+            color: white;
+            transition: 0.3s;
+        }
+        .category:hover {
+            background: #e63946;
+            transform: scale(1.05);
+        }
+        #fact {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #f8f8f8;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Facts by Category</h1>
+        <p id="fact">Select a category to see a fun fact!</p>
+        <div class="categories">
+            <button class="category" onclick="showFact('science')">🔬 Science</button>
+            <button class="category" onclick="showFact('history')">📜 History</button>
+            <button class="category" onclick="showFact('nature')">🌿 Nature</button>
+            <button class="category" onclick="showFact('technology')">💻 Technology</button>
+            <button class="category" onclick="showFact('art')">🎨 Art</button>
+            <button class="category" onclick="showFact('space')">🚀 Space</button>
+        </div>
+    </div>
+    
+    <script>
+        const facts = {
+            science: [
+                "Water can boil and freeze at the same time.",
+                "Venus is the only planet that rotates clockwise.",
+                "The human stomach produces new mucus every two weeks."
+            ],
+            history: [
+                "The shortest war in history lasted 38 minutes.",
+                "Julius Caesar was once kidnapped by pirates.",
+                "The Great Pyramid was originally covered in limestone."
+            ],
+            nature: [
+                "Sharks are the only fish that can blink with both eyes.",
+                "A group of flamingos is called a 'flamboyance'.",
+                "Honey never spoils."
+            ],
+            technology: [
+                "The first email was sent in 1971.",
+                "The original name of Windows was Interface Manager.",
+                "The first computer virus was created in 1983."
+            ],
+            art: [
+                "The Mona Lisa has no eyebrows.",
+                "Van Gogh only sold one painting in his lifetime."
+            ],
+            space: [
+                "A day on Venus is longer than a year on Venus.",
+                "There are more stars than grains of sand on Earth’s beaches."
+            ]
+        };
+
+        function showFact(category) {
+            const categoryFacts = facts[category];
+            const fact = categoryFacts[Math.floor(Math.random() * categoryFacts.length)];
+            document.getElementById('fact').innerText = fact;
+        }
+    </script>
+</body>
+</html>
